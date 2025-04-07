@@ -38,7 +38,7 @@ public class CustomerServiceImp implements CustomerService {
 
     @Override
     public List<Customer> getAllCustomers() {
-        return customerRepository.findAll(); // JPA built-in
+        return customerRepository.findAll();
     }
 
 
