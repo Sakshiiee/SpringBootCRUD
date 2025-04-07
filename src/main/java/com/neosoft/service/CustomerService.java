@@ -1,6 +1,9 @@
 package com.neosoft.service;
 
 import com.neosoft.entities.Customer;
+import java.util.List;
+
+
 
 public interface CustomerService {
 
@@ -15,4 +18,10 @@ public interface CustomerService {
 
 //    delete
     public void deleteCustomer(int id);
+
+    //getall
+
+    public List<Customer> getAllCustomers();
+
+
 }

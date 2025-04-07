@@ -5,6 +5,8 @@ import com.neosoft.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerServiceImp implements CustomerService {
 
@@ -33,5 +35,11 @@ public class CustomerServiceImp implements CustomerService {
     public void deleteCustomer(int id) {
         customerRepository.deleteById(id);
     }
+
+    @Override
+    public List<Customer> getAllCustomers() {
+        return customerRepository.findAll(); // JPA built-in
+    }
+
 
 }
