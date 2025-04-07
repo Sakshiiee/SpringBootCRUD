@@ -3,6 +3,7 @@ package com.neosoft.controller;
 import com.neosoft.entities.Customer;
 import com.neosoft.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,15 +32,18 @@ public class CustomerController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteCustomer(@PathVariable int id){
+    public String deleteCustomer(@PathVariable int id){
         customerService.deleteCustomer(id);
-        System.out.println("Deleted Successfully");
+        return  "Deleted Successfully!";
     }
 
     //get all
     @GetMapping("/getall")
-    public List<Customer> getAllCustomers() {
-        return customerService.getAllCustomers();
+    public List<Customer> getAllCustomers(
+            @RequestParam (value = "pageNumber", defaultValue = "1", required = false) Integer pageNumber,
+            @RequestParam (value = "pageSize", defaultValue = "3", required = false) Integer pageSize
+    ) {
+        return customerService.getAllCustomers(pageNumber, pageSize);
     }
 
 

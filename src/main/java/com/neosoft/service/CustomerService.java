@@ -21,7 +21,7 @@ public interface CustomerService {
 
     //getall
 
-    public List<Customer> getAllCustomers();
+    public List<Customer> getAllCustomers(Integer pagenumber, Integer pageSize);
 
 
 }
